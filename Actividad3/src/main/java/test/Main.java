@@ -24,31 +24,31 @@ public class Main {
 		em = emf.createEntityManager();
 
 		// Mostrar todos los libros dados de alta, con su editorial y su autor
-		System.out.println("===================================");
+		System.out.println("==============================================");
 		Query query = em.createQuery("Select l from Libro l");
 		List<Libro> listaLibros = query.getResultList();
-		System.out.println("==== Listado de libros ====");
+		System.out.println("==== Listado de libros, editorial y autor ====");
 		listarLibros(listaLibros);
 
 		// Mostrar todos los autores dados de alta, con sus libros asociados
-		System.out.println("===================================");
+		System.out.println("==============================================");
 		query = em.createQuery("Select a from Autor a");
 		List<Autor> listaAutores = query.getResultList();
-		System.out.println("==== Listado de autores y sus libros ====");
+		System.out.println("==== Listado de autores y sus libros =========");
 		listarAutores(listaAutores);
 
 		// Mostrar todas las librerías, con solamente sus libros asociados
-		System.out.println("===================================");
+		System.out.println("==============================================");
 		query = em.createQuery("Select l from Libreria l");
 		List<Libreria> listaLibrerias = query.getResultList();
-		System.out.println("==== Librerías y libros asociados ====");
+		System.out.println("==== Librerías y libros asociados ============");
 		listarLibrerias(listaLibrerias);
 
 		// Mostrar todos los libros dados de alta, y en la librería en la que están
-		System.out.println("===================================");
+		System.out.println("==============================================");
 		query = em.createQuery("Select l from Libro l");
 		List<Libro> listaLibrosLibrerias = query.getResultList();
-		System.out.println("==== Libros y librerías ====");
+		System.out.println("==== Libros en librerías =====================");
 		listarLibrosLibrerias(listaLibrosLibrerias);
 
 		em.close();
@@ -60,8 +60,8 @@ public class Main {
 	// Utilizamos un bucle for-each para presentar la información
 	private static void listarLibros(List<Libro> listaLibros) {
 		for (Libro l : listaLibros) {
-			System.out.println("Libro: " + l.getTitulo() + " / Autor: " + l.getAutor().getNombre() + " "
-					+ l.getAutor().getApellidos() + " / Editorial: " + l.getEditorial().getNombre());
+			System.out.println("Libro: " + l.getTitulo() + " "
+					+ l.getAutor().getApellidos() + " / Editorial: " + l.getEditorial().getNombre() + " / Autor: " + l.getAutor().getNombre() );
 		}
 	}
 
