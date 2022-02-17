@@ -11,6 +11,7 @@ import modelo.entidad.Autor;
 import modelo.entidad.Editorial;
 import modelo.entidad.Libreria;
 import modelo.entidad.Libro;
+import modelo.entidad.Sgae;
 
 /**
  * 
@@ -78,9 +79,13 @@ public class InitBBDD {
 	private static void altasRequerimiento() {
 
 		// Creación de 3 autores
-		autor1 = new Autor(null, "Miguel", "De Cervantes", null, null);
-		autor2 = new Autor(null, "Francisco", "Ibañez", null, null);
-		autor3 = new Autor(null, "Andrzej", "Sapkowski", null, null);
+		autor1 = new Autor(null, "Miguel", "De Cervantes", null, null, null);
+		autor2 = new Autor(null, "Francisco", "Ibañez", null, null, null);
+		autor3 = new Autor(null, "Andrzej", "Sapkowski", null, null, null);
+		// Sgae a efectos del requerimiento 3
+		autor1.setSgae(new Sgae(null, "a-03215", autor1, "0182-1119"));
+		autor2.setSgae(new Sgae(null, "b-66465", autor2, "2100-0046"));
+		autor3.setSgae(new Sgae(null, "c-98741", autor3, "128-0055"));
 		listaAutores.add(autor1);
 		listaAutores.add(autor2);
 		listaAutores.add(autor3);

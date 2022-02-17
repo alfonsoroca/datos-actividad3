@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,18 +43,23 @@ public class Autor {
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private List<Libro> librosDelAutor;
 
+	// Relación bidireccional one to one con SGAE (a efectos del requeriento 3)
+	@OneToOne(mappedBy = "autor", cascade=CascadeType.ALL)
+	private Sgae sgae;
+
 	// Constructores vacíos y con todo
 	public Autor() {
 		super();
 	}
 
-	public Autor(Integer id, String nombre, String apellidos, Date fnacimiento, List<Libro> librosDelAutor) {
+	public Autor(Integer id, String nombre, String apellidos, Date fnacimiento, List<Libro> librosDelAutor, Sgae sgae) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.fnacimiento = fnacimiento;
 		this.librosDelAutor = librosDelAutor;
+		this.sgae = sgae;
 	}
 
 	// Getter y setter
@@ -95,12 +101,20 @@ public class Autor {
 
 	public void setLibrosDelAutor(List<Libro> librosDelAutor) {
 		this.librosDelAutor = librosDelAutor;
+	}	
+
+	public Sgae getSgae() {
+		return sgae;
+	}
+
+	public void setSgae(Sgae sgae) {
+		this.sgae = sgae;
 	}
 
 	// Sobrescritura del método toString()
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fnacimiento=" + fnacimiento
-				+ ", librosDelAutor=" + librosDelAutor + "]";
-	}	
+				+ ", librosDelAutor=" + librosDelAutor + ", sgae=" + sgae + "]";
+	}
 }
