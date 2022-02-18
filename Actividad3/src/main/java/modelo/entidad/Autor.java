@@ -1,5 +1,6 @@
 package modelo.entidad;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class Autor {
 	private List<Libro> librosDelAutor;
 
 	// Relación bidireccional one to one con SGAE (a efectos del requeriento 3)
-	@OneToOne(mappedBy = "autor", cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Sgae sgae;
 
 	// Constructores vacíos y con todo
@@ -53,7 +54,7 @@ public class Autor {
 	}
 
 	public Autor(Integer id, String nombre, String apellidos, Date fnacimiento, List<Libro> librosDelAutor, Sgae sgae) {
-		super();
+		super();		
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -101,7 +102,7 @@ public class Autor {
 
 	public void setLibrosDelAutor(List<Libro> librosDelAutor) {
 		this.librosDelAutor = librosDelAutor;
-	}	
+	}
 
 	public Sgae getSgae() {
 		return sgae;
@@ -109,6 +110,20 @@ public class Autor {
 
 	public void setSgae(Sgae sgae) {
 		this.sgae = sgae;
+	}
+
+	/**
+	 * Método que asigna un libro al autor en el caso de que no se encuentre ya
+	 * asignado y asigna el autor al libro
+	 * 
+	 * @param libro Libro a asignar al autor
+	 */
+	public void asignarLibroAAutor(Libro libro) {
+		librosDelAutor = new ArrayList<>();
+		if (!librosDelAutor.contains(libro)) {
+			librosDelAutor.add(libro);
+			libro.setAutor(this);
+		}
 	}
 
 	// Sobrescritura del método toString()

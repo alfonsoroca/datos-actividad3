@@ -115,6 +115,7 @@ public class Libro {
 	// Sobrescritura del método toString()
 	@Override
 	public String toString() {
-		return "Libro [id=" + id + ", titulo=" + titulo + ", precio=" + precio + "]";
+		return "Libro [id=" + id + ", titulo=" + titulo + ", precio=" + precio + ", autor=" + autor.getNombre() + " "
+				+ autor.getApellidos() + ", editorial=" + editorial.getNombre() + "]";
 	}
 }

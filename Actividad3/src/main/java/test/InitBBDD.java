@@ -43,8 +43,7 @@ public class InitBBDD {
 	public static void start() {
 
 		altasRequerimiento();
-		asignacionesManyToOne();
-		asignacionesOneToMany();
+		asignaciones();
 		asignacionesManyToMany();
 
 		em = emf.createEntityManager();
@@ -122,71 +121,32 @@ public class InitBBDD {
 
 	}
 
-	// Método que asigna a los objetos del extremo Many de la relación OneToMany
-	private static void asignacionesManyToOne() {
+	private static void asignaciones() {
 
-		// Autores a libros
-		libro1.setAutor(autor1);
-		libro2.setAutor(autor1);
+		// Asignamos los libros a los autores y automáticamente se asignarán los autores
+		// a los libros
+		autor1.asignarLibroAAutor(libro1);
+		autor1.asignarLibroAAutor(libro2);
 
-		libro3.setAutor(autor2);
-		libro4.setAutor(autor2);
-		libro5.setAutor(autor2);
+		autor2.asignarLibroAAutor(libro3);
+		autor2.asignarLibroAAutor(libro4);
+		autor2.asignarLibroAAutor(libro5);
 
-		libro6.setAutor(autor3);
-		libro7.setAutor(autor3);
-		libro8.setAutor(autor3);
+		autor3.asignarLibroAAutor(libro6);
+		autor3.asignarLibroAAutor(libro7);
+		autor3.asignarLibroAAutor(libro8);
 
-		// Editoriales a libros
-		libro1.setEditorial(editorial1);
-		libro2.setEditorial(editorial1);
-		libro3.setEditorial(editorial1);
-		libro4.setEditorial(editorial1);
-
-		libro5.setEditorial(editorial2);
-		libro6.setEditorial(editorial2);
-		libro7.setEditorial(editorial2);
-		libro8.setEditorial(editorial2);
-
-	}
-
-	// Método que asigna a los objetos del extremo One de la relación OneToMany
-	private static void asignacionesOneToMany() {
-
-		Autor autor = new Autor();
-		Editorial editorial = new Editorial();
-		List<Libro> librosAutores = new ArrayList<>();
-		List<Libro> librosEditoriales = new ArrayList<>();
-
-		// Libros a autores
-		// Utilizamos 2 bucles para asignar el listado de libros a cada autor
-		for (int i = 0; i < listaAutores.size(); i++) {
-			autor = listaAutores.get(i);
-			for (int j = 0; j < listaLibros.size(); j++) {
-				if (listaLibros.get(j).getAutor() == autor) {
-					librosAutores.add(listaLibros.get(j));
-				}
-			}
-			autor.setLibrosDelAutor(librosAutores);
-
-			// Vaciamos la lista para la próxima iteración
-			librosAutores.clear();
-		}
-
-		// Libros a editoriales
-		// Utilizamos 2 bucles para asiganr el listado de libros a cada editorial
-		for (int i = 0; i < listaEditoriales.size(); i++) {
-			editorial = listaEditoriales.get(i);
-			for (int j = 0; j < listaLibros.size(); j++) {
-				if (listaLibros.get(j).getEditorial() == editorial) {
-					librosEditoriales.add(listaLibros.get(j));
-				}
-			}
-			editorial.setLibrosEnEditorial(librosEditoriales);
-
-			// Vaciamos la lista para la próxima iteración
-			librosEditoriales.clear();
-		}
+		// Asignamos los libros a las editoriales y automáticamente se asignarán las editoriales
+		// a los libros		
+		editorial1.asignarLibroAEditorial(libro1);
+		editorial1.asignarLibroAEditorial(libro2);
+		editorial1.asignarLibroAEditorial(libro3);
+		editorial1.asignarLibroAEditorial(libro4);
+		
+		editorial2.asignarLibroAEditorial(libro5);
+		editorial2.asignarLibroAEditorial(libro6);
+		editorial2.asignarLibroAEditorial(libro7);
+		editorial2.asignarLibroAEditorial(libro8);
 	}
 
 	// Método que asigna a los objetos en las relaciones Many to Many
@@ -209,13 +169,13 @@ public class InitBBDD {
 		 * Aunque el enunciado decía que cada librería tendrá 4 libros dados de alta
 		 * previamente, hemos querido complicarlo con las siguientes condiciones
 		 * 
-		 * Los libros que ocupan las primeras posiciones de la listaLibros se encuentran
+		 * Los libros que ocupan las posiciones 0,1,2,3 de la listaLibros se encuentran
 		 * en ambas librerias
 		 * 
-		 * Los libros que ocupan las posiciones 5 y 6 de la listaLibros se encuentra en
+		 * Los libros que ocupan las posiciones 4,5 de la listaLibros se encuentra en
 		 * la libreria1
 		 * 
-		 * Los libros que ocupan las posiciones 7 y 8 de la listaLibros se encuentra en
+		 * Los libros que ocupan las posiciones 6,7 de la listaLibros se encuentra en
 		 * la libreria2
 		 */
 

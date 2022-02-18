@@ -1,5 +1,6 @@
 package modelo.entidad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -40,7 +41,7 @@ public class Editorial {
 	}	
 
 	public Editorial(Integer id, String nombre, String direccion, List<Libro> librosEnEditorial) {
-		super();
+		super();		
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -78,6 +79,20 @@ public class Editorial {
 
 	public void setLibrosEnEditorial(List<Libro> librosEnEditorial) {
 		this.librosEnEditorial = librosEnEditorial;
+	}
+	
+	/**
+	 * Método que asigna un libro a una editorial en el caso de que no se encuentre ya
+	 * asignado y asigna la editorial al libro
+	 * 
+	 * @param libro Libro a asignar a la editorial
+	 */
+	public void asignarLibroAEditorial(Libro libro) {
+		librosEnEditorial = new ArrayList<Libro>();
+		if (!librosEnEditorial.contains(libro)) {
+			librosEnEditorial.add(libro);
+			libro.setEditorial(this);
+		}
 	}
 
 	// Sobrescritura del método toString()

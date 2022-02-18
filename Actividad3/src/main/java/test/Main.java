@@ -60,8 +60,8 @@ public class Main {
 	// Utilizamos un bucle for-each para presentar la información
 	private static void listarLibros(List<Libro> listaLibros) {
 		for (Libro l : listaLibros) {
-			System.out.println("Libro: " + l.getTitulo() + " "
-					+ l.getAutor().getApellidos() + " / Editorial: " + l.getEditorial().getNombre() + " / Autor: " + l.getAutor().getNombre() );
+			System.out.println("Libro: " + l.getTitulo() + " / Editorial: " + l.getEditorial().getNombre() + " / Autor: " + l.getAutor().getNombre() + " "
+					+ l.getAutor().getApellidos());
 		}
 	}
 
