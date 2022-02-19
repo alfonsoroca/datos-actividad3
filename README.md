@@ -116,6 +116,19 @@ En este caso en lugar de 4 libros a cada librería, como indicaba el requerimien
 ### Libros ![](/Actividad3/images/bbdd_libros.png)
 ### Sgae ![](/Actividad3/images/bbdd_sgae.png)
 
+# Requerimiento 2
+
+### 1. Mostrar todos los libros dados de alta, con su editorial y su autor
+![](/Actividad3/images/requerimiento_2_1.png)
+
+### 2. Mostrar todos los autores dados de alta, con sus libros asociados
+![](/Actividad3/images/requerimiento_2_2.png)
+
+### 3. Mostrar todas las librerías, con solamente sus libros asociados
+![](/Actividad3/images/requerimiento_2_3.png)
+
+### 4. Mostrar todos los libros dados de alta, y en la librería en la que están
+![](/Actividad3/images/requerimiento_2_4.png)
 
 
 
