@@ -32,7 +32,7 @@ Esta clase tiene como finalidad dar contestación al requerimiento 3 de la activ
 
 De esta manera, en el modelo mostrado quedan recogidas las relaciones:
 - One to one.- Entre Autor y Sgae.
-- One to Many.- Entre Autor y Libro, Libro y Lditorial.
+- One to Many.- Entre Autor y Libro, Libro y Editorial.
 - Many to Many.- Entre Libro y Libreria.
 
 ## Métodos específicos para cumplir con la bidireccionalidad en las relaciones
@@ -130,5 +130,10 @@ En este caso en lugar de 4 libros a cada librería, como indicaba el requerimien
 ### 4. Mostrar todos los libros dados de alta, y en la librería en la que están
 ![](/Actividad3/images/requerimiento_2_4.png)
 
+# Requerimiento 3
+El modelo de datos que recoge todas las relaciones estudiadas se ha realizado al añadir la clase Sgae que establece una relación One to One con la clase Autor de tal manera que las relaciones presentes en la aplicación son las siguientes:
 
+- One to one.- Entre Autor y Sgae.
+- One to Many.- Entre Autor y Libro, Libro y Editorial.
+- Many to Many.- Entre Libro y Libreria.
 
