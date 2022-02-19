@@ -1,6 +1,6 @@
 # Introducción
 
-En la rama main del repositorio se encuentra el código de la actividad "AE-3. JPA" realizada por el grupo.
+En la rama master del repositorio se encuentra el código de la actividad "AE-3. JPA" realizada por el grupo.
 
 # Estructura de la aplicación
 
