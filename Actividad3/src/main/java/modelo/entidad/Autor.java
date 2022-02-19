@@ -125,6 +125,17 @@ public class Autor {
 			libro.setAutor(this);
 		}
 	}
+	
+	/**
+	 * Método que asigna un sgae al autor en el caso de que no se encuentre ya
+	 * asignado y asigna el autor a la sgae
+	 * 
+	 * @param sgae Sgae a asignar al autor
+	 */
+	public void asignarSgaeAAutor(Sgae sgae) {
+		this.setSgae(sgae);
+		sgae.setAutor(this);
+	}
 
 	// Sobrescritura del método toString()
 	@Override

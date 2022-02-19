@@ -7,6 +7,7 @@
 		<class>modelo.entidad.Editorial</class>
 		<class>modelo.entidad.Libreria</class>
 		<class>modelo.entidad.Libro</class>
+		<class>modelo.entidad.Sgae</class>
 		
 		<properties>
 			<!-- Parametros para que JPA se conecte a la BBDD -->
@@ -18,7 +19,7 @@
 			<!-- Configuramos JPA para que borre y cree las tablas cada vez que se arranque-->
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 						 
-			<!-- Queremos mostrar las trazas de sql y establecer dialecto con hibernate -->
+			<!-- No queremos mostrar las trazas de sql y establecer dialecto con hibernate -->
 			<property name = "hibernate.show_sql" value = "false" />
 			<property name = "hibernate.dialect" value = "org.hibernate.dialect.MySQL8Dialect" />			
 		</properties>

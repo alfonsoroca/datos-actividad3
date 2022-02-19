@@ -39,6 +39,10 @@ public class InitBBDD {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GestionLibrerias");
 	private static EntityManager em = null;
+	
+	// A efectos del requerimiento 3
+	private static Sgae sgae1, sgae2, sgae3;
+	
 
 	public static void start() {
 
@@ -81,13 +85,14 @@ public class InitBBDD {
 		autor1 = new Autor(null, "Miguel", "De Cervantes", null, null, null);
 		autor2 = new Autor(null, "Francisco", "Ibañez", null, null, null);
 		autor3 = new Autor(null, "Andrzej", "Sapkowski", null, null, null);
-		// Sgae a efectos del requerimiento 3
-		autor1.setSgae(new Sgae(null, "a-03215", autor1, "0182-1119"));
-		autor2.setSgae(new Sgae(null, "b-66465", autor2, "2100-0046"));
-		autor3.setSgae(new Sgae(null, "c-98741", autor3, "128-0055"));
 		listaAutores.add(autor1);
 		listaAutores.add(autor2);
 		listaAutores.add(autor3);
+		
+		// Creación de Sgae a efectos del requerimiento 3
+		sgae1 = new Sgae(null, "a-03215", autor1, "0182-1119");
+		sgae2 = new Sgae(null, "b-66465", autor2, "2100-0046");
+		sgae3 = new Sgae(null, "c-98741", autor3, "128-0055");
 
 		// Creación de 2 editoriales
 		editorial1 = new Editorial(null, "Espasa Calpe", "Calle de la Letra A", null);
@@ -135,14 +140,20 @@ public class InitBBDD {
 		autor3.asignarLibroAAutor(libro6);
 		autor3.asignarLibroAAutor(libro7);
 		autor3.asignarLibroAAutor(libro8);
+		
+		// Asignamos la sgae a los autores y automáticamente se asignarán los autores
+		// a la sgae
+		autor1.setSgae(sgae1);
+		autor2.setSgae(sgae2);
+		autor3.setSgae(sgae3);
 
-		// Asignamos los libros a las editoriales y automáticamente se asignarán las editoriales
-		// a los libros		
+		// Asignamos los libros a las editoriales y automáticamente se asignarán las
+		// editoriales a los libros
 		editorial1.asignarLibroAEditorial(libro1);
 		editorial1.asignarLibroAEditorial(libro2);
 		editorial1.asignarLibroAEditorial(libro3);
 		editorial1.asignarLibroAEditorial(libro4);
-		
+
 		editorial2.asignarLibroAEditorial(libro5);
 		editorial2.asignarLibroAEditorial(libro6);
 		editorial2.asignarLibroAEditorial(libro7);
@@ -172,11 +183,11 @@ public class InitBBDD {
 		 * Los libros que ocupan las posiciones 0,1,2,3 de la listaLibros se encuentran
 		 * en ambas librerias
 		 * 
-		 * Los libros que ocupan las posiciones 4,5 de la listaLibros se encuentra en
-		 * la libreria1
+		 * Los libros que ocupan las posiciones 4,5 de la listaLibros se encuentra en la
+		 * libreria1
 		 * 
-		 * Los libros que ocupan las posiciones 6,7 de la listaLibros se encuentra en
-		 * la libreria2
+		 * Los libros que ocupan las posiciones 6,7 de la listaLibros se encuentra en la
+		 * libreria2
 		 */
 
 		for (int i = 0; i < listaLibros.size(); i++) {
