@@ -54,7 +54,7 @@ public class Autor {
 	}
 
 	public Autor(Integer id, String nombre, String apellidos, Date fnacimiento, List<Libro> librosDelAutor, Sgae sgae) {
-		super();		
+		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -125,10 +125,9 @@ public class Autor {
 			libro.setAutor(this);
 		}
 	}
-	
+
 	/**
-	 * Método que asigna un sgae al autor en el caso de que no se encuentre ya
-	 * asignado y asigna el autor a la sgae
+	 * Método que asigna un sgae al autor y asigna el autor a la sgae
 	 * 
 	 * @param sgae Sgae a asignar al autor
 	 */
