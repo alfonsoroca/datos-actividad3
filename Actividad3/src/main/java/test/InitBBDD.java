@@ -82,9 +82,9 @@ public class InitBBDD {
 	private static void altasRequerimiento() {
 
 		// Creación de 3 autores
-		autor1 = new Autor(null, "Miguel", "De Cervantes", null, null, null);
-		autor2 = new Autor(null, "Francisco", "Ibañez", null, null, null);
-		autor3 = new Autor(null, "Andrzej", "Sapkowski", null, null, null);
+		autor1 = new Autor(null, "Miguel", "De Cervantes", "29/09/1547", null, null);
+		autor2 = new Autor(null, "Francisco", "Ibañez", "15/03/1936", null, null);
+		autor3 = new Autor(null, "Andrzej", "Sapkowski", "21/06/1948", null, null);
 		listaAutores.add(autor1);
 		listaAutores.add(autor2);
 		listaAutores.add(autor3);

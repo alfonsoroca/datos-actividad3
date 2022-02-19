@@ -35,9 +35,8 @@ public class Autor {
 	private String nombre;
 
 	private String apellidos;
-
-	@Temporal(TemporalType.DATE)
-	private Date fnacimiento;
+	
+	private String fnacimiento;
 
 	// Relación bidireccional one to many con Libro
 	// Especificamos CascadeType.ALL
@@ -53,7 +52,7 @@ public class Autor {
 		super();
 	}
 
-	public Autor(Integer id, String nombre, String apellidos, Date fnacimiento, List<Libro> librosDelAutor, Sgae sgae) {
+	public Autor(Integer id, String nombre, String apellidos, String fnacimiento, List<Libro> librosDelAutor, Sgae sgae) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -88,11 +87,11 @@ public class Autor {
 		this.apellidos = apellidos;
 	}
 
-	public Date getFnacimiento() {
+	public String getFnacimiento() {
 		return fnacimiento;
 	}
 
-	public void setFnacimiento(Date fnacimiento) {
+	public void setFnacimiento(String fnacimiento) {
 		this.fnacimiento = fnacimiento;
 	}
 
