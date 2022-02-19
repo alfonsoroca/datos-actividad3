@@ -100,14 +100,21 @@ La estructura de la base que da resolución a los requerimientos de la actividad
 
 Esta estructura viene establecida por las clases que definen cada una de las entidades que con forman la base de datos.
 
+# Requerimiento 1
+A continuación se muestra el resultado de la aplicación al ejecutar el código que da solución al requerimiento 1 de la actividad.
+
 ### Autores ![](/Actividad3/images/bbdd_autores.png)
 ### Editoriales ![](/Actividad3/images/bbdd_editoriales.png)
 ### Librerias ![](/Actividad3/images/bbdd_librerias.png)
-### Librerias_Libros ![](/Actividad3/images/bbdd_librerias_libros.png)
+### Librerias_Libros
+En este caso en lugar de 4 libros a cada librería, como indicaba el requerimiento hemos querido complicarlo con las siguientes condiciones:
+- Los libros que ocupan las posiciones 0,1,2,3 de la listaLibros se encuentran en ambas librerias. 
+- Los libros que ocupan las posiciones 4,5 de la listaLibros se encuentra en la libreria denominada en el código como libreria1.
+- Los libros que ocupan las posiciones 6,7 de la listaLibros se encuentra en la libreria denominada en el código como libreria2.
+
+![](/Actividad3/images/bbdd_librerias_libros.png)
 ### Libros ![](/Actividad3/images/bbdd_libros.png)
 ### Sgae ![](/Actividad3/images/bbdd_sgae.png)
-
-
 
 
 
